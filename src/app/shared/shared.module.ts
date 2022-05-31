@@ -10,32 +10,22 @@ import { RouterModule } from '@angular/router';
 import { UploadFilesComponent } from './upload-files/upload-files.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslationComponent } from './translation/translation.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+const COMPONENTS = [
+  BreadcrumbsComponent,
+  HeaderComponent,
+  SidebarComponent,
+  LoadingComponent,
+  UploadFilesComponent,
+  TranslationComponent,
+];
 
-
+const MODULES = [RouterModule, CommonModule, MaterialModule, TranslateModule, ReactiveFormsModule, FormsModule];
 
 @NgModule({
-  declarations: [
-    BreadcrumbsComponent,
-    HeaderComponent,
-    SidebarComponent,
-    LoadingComponent,
-    UploadFilesComponent,
-    TranslationComponent
-  ],
-  imports: [
-    RouterModule,
-    CommonModule,
-    MaterialModule,
-    TranslateModule
-  ],
-  exports: [
-    BreadcrumbsComponent,
-    HeaderComponent,
-    SidebarComponent,
-    LoadingComponent,
-    UploadFilesComponent,
-    TranslationComponent
-  ]
+  declarations: [...COMPONENTS],
+  imports: [...MODULES],
+  exports: [...COMPONENTS],
 })
-export class SharedModule { }
+export class SharedModule {}

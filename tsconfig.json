@@ -16,6 +16,8 @@
       "@enums/*": ["src/app/core/enums/*"],
       "@constants/*": ["src/app/core/constants/*"],
       "@interceptors/*": ["src/app/core/interceptors/*"],
+      "@components/*": ["src/app/components/*"],
+      "@shared/*": ["src/app/shared/*"],
   },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",

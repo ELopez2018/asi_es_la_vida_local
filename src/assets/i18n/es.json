@@ -1,6 +1,7 @@
 {
   "Search": "Búsqueda",
   "User Registration": "Registro de Usuarios",
+  "Product Registration": "Registro de Productos",
   "Record": "Expediente",
   "Records": "Expedientes",
   "File number": "Número  de expediente",
@@ -18,10 +19,10 @@
   "Setting": "Configuración",
   "Roles": "Roles",
   "Home": "Inicio",
-  "Requests Registration":"Registro de Solicitudes",
-  "Requests":"Solicitudes",
+  "Requests Registration": "Registro de Solicitudes",
+  "Requests": "Solicitudes",
   "Products": "Productos",
   "Sales": "Ventas",
-  "Price": "Precios"
+  "Price": "Precios",
 
 }

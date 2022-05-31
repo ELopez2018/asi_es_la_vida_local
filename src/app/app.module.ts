@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +32,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HttpClientModule,
     CoreModule.forRoot(),
     TranslateModule.forRoot({
+      defaultLanguage: 'es',
       loader: {
         provide: TranslateLoader,
         useFactory:( HttpLoaderFactory),
@@ -40,7 +41,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     })
 
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'es-CO' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
