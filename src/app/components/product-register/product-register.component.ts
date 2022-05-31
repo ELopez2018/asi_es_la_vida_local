@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-
+import { v4 as uuidv4 } from 'uuid';
 @Component({
   selector: 'app-product-register',
   templateUrl: './product-register.component.html',
@@ -18,28 +18,30 @@ export class ProductRegisterComponent implements OnInit {
   ngOnInit(): void {}
   createForm(): void {
     this.form = this.fb.group({
-      name: new FormControl('nikname'),
-      email: new FormControl('email', [Validators.required, Validators.email]),
-      avatar: new FormControl(''),
-      din: new FormControl('1234567890'),
-      pnombre: new FormControl('estarlin', Validators.required),
-      snombre: new FormControl('enrique'),
-      apellidop: new FormControl('lopez'),
-      apellidom: new FormControl('valero'),
-      genero: new FormControl('Masculino'),
-      celular: new FormControl('3204454846'),
-      telefonos: new FormControl('3204454846'),
-      pais: new FormControl('Venezuela'),
-      departamento: new FormControl('Trujillo'),
-      ciudad: new FormControl('Chejende'),
-      barrio: new FormControl('El turiamo'),
-      direccion: new FormControl(' casa 1'),
-      fechanacimiento: new FormControl('1977-12-08'),
-      role_id: new FormControl(0),
+      name: new FormControl(null),
+      sku: new FormControl(uuidv4(), [Validators.required, Validators.email]),
+      image: new FormControl(null),
+      color: new FormControl(null),
+      type_packaging: new FormControl(null, Validators.required),
+      type_presentation: new FormControl(null),
+      short_description: new FormControl(null),
+      description: new FormControl(null),
+      regular_price: new FormControl(null),
+      sale_price: new FormControl(null),
+      discount: new FormControl(null),
+      status: new FormControl(null),
+      stock_status	: new FormControl(null),
+      carousel	: new FormControl(null),
+      taxes	: new FormControl(null),
+      stock_min	: new FormControl(null),
+      stock	: new FormControl(null),
     });
   }
   get email() {return this.form.get('email');}
   get pnombre() {return this.form.get('pnombre');}
+
+  get status() {return this.form.get('status');}
+  get stock_status() {return this.form.get('stock_status');}
   save(): void {
     let value = this.form.value;
     console.log(value);

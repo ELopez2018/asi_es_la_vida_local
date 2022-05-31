@@ -12,6 +12,7 @@ import { ProductRegisterRoutingModule } from './product-register.routing';
     TranslateModule,
     ReactiveFormsModule,
     ProductRegisterRoutingModule,
+    SharedModule
   ],
   declarations: [ProductRegisterComponent],
 })

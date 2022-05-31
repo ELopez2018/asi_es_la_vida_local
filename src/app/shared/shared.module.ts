@@ -26,6 +26,6 @@ const MODULES = [RouterModule, CommonModule, MaterialModule, TranslateModule, Re
 @NgModule({
   declarations: [...COMPONENTS],
   imports: [...MODULES],
-  exports: [...COMPONENTS],
+  exports: [...COMPONENTS,...MODULES ],
 })
 export class SharedModule {}
