@@ -1,0 +1,69 @@
+<!-- ============================================================== -->
+<!-- Stats box -->
+<!-- ============================================================== -->
+<div class="row">
+  <div class="col-lg-3">
+    <div class="card bg-info">
+      <a routerLink="../solicitudes/1">
+        <div class="card-body">
+          <div class="d-flex no-block">
+            <div class="m-r-20 align-self-center"><img src="../assets/images/icon/income-w.png" alt="Income" /></div>
+            <div class="align-self-center">
+              <h6 class="text-white m-t-10 m-b-0">Solicitudes por Atender</h6>
+              <h2 class="m-t-0 text-white">{{ reqPorAtender }}</h2>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="card bg-success">
+      <a routerLink="../solicitudes/3">
+      <div class="card-body">
+        <div class="d-flex no-block">
+          <div class="m-r-20 align-self-center"><img src="../assets/images/icon/expense-w.png" alt="Income" /></div>
+          <div class="align-self-center">
+            <h6 class="text-white m-t-10 m-b-0">Solicitudes por Asignar</h6>
+            <h2 class="m-t-0 text-white">{{ reqPorAsignar }}</h2>
+          </div>
+        </div>
+        <!-- <button class="btn btn-sm btn-outline-dark" (click)="mensaje(1)" > ver </button> -->
+      </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="card bg-primary">
+      <a routerLink="../solicitudes/4">
+      <div class="card-body">
+        <div class="d-flex no-block">
+          <div class="m-r-20 align-self-center"><img src="../assets/images/icon/assets-w.png" alt="Income" /></div>
+          <div class="align-self-center">
+            <h6 class="text-white m-t-10 m-b-0">Solicitudes Asignadas</h6>
+            <h2 class="m-t-0 text-white">{{ reqTAsignadas }}</h2>
+          </div>
+          <!-- <button class="btn btn-sm btn-outline-dark" (click)="mensaje(2)" > ver </button> -->
+        </div>
+      </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="card bg-danger">
+      <a routerLink="../solicitudes/">
+      <div class="card-body">
+        <div class="d-flex no-block">
+          <div class="m-r-20 align-self-center"><img src="../assets/images/icon/staff-w.png" alt="Income" /></div>
+          <div class="align-self-center">
+            <h6 class="text-white m-t-10 m-b-0">Total Solicitudes Activas</h6>
+            <h2 class="m-t-0 text-white">{{ reqTodas }}</h2>
+          </div>
+          <!-- <button class="btn btn-sm btn-outline-dark" (click)="mensaje(3)" > ver </button> -->
+        </div>
+      </div>
+      </a>
+    </div>
+  </div>
+</div>
+

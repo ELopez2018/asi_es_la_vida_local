@@ -1,0 +1,47 @@
+@import "../../../assets/styles/base.scss";
+.sombra {
+  box-shadow: 2px 2px 4px #d1cfcf;
+  padding: 2px;
+  border: 1px solid whitesmoke;
+  margin-top: 2px;
+ align-items:center;
+}
+
+
+.header {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  #file {
+    background-color: #ffffff00  !important;
+    border: none;
+  }
+  .header {
+    display:flex;
+    box-shadow: 2px 2px 4px #d1cfcf;
+    padding: 8px;
+    border: whitesmoke;
+    margin-top: 2px;
+    background-color: $color-header-tables;
+    color: whitesmoke;
+  }
+}
+
+@media (min-width: 1955px) {
+}
+
+
+@keyframes scaling {
+  0% {
+      -webkit-transform: scale(1);
+  }
+
+  50% {
+      -webkit-transform: scale(1.5);
+  }
+
+  100% {
+      -webkit-transform: scale(1);
+  }
+}

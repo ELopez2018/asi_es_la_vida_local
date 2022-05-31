@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="alert alert-primary text-center" role="alert">
+    {{ 'SOLICITUDES '+ titulo }}
+  </div>
+
+  <div class="row header mb-2 text-center">
+    <div class="col-sm-2 align-middle">
+      <!-- <label for="requestName">Nombre: </label> -->
+      <span id="requestName"> Nombre </span>
+    </div>
+    <div class="col-sm-3 align-middle">
+      <!-- <label for="requestMail">Correo:</label> -->
+      <span id="requestaMail align-middle">
+        Correo
+      </span>
+    </div>
+    <div class="col-sm-5 align-middle">
+      Tipo de Servicio
+    </div>
+    <div class="col-sm-2">
+      Acciones
+    </div>
+  </div>
+
+  <div class="row mt-2 sombra" *ngFor="let request of requestsAllSelected">
+    <div class="col-sm-2 ">
+      <!-- <label for="requestName">Nombre: </label> -->
+  {{ request.name }}
+    </div>
+    <div class="col-sm-3">
+      <!-- <label for="requestMail">Correo:</label> -->
+        {{ request.email }}
+    </div>
+    <div class="col-sm-5">
+      {{ request.services_types_description }}
+    </div>
+    <div class="col-sm-2 text-center">
+      <!-- <button  mat-fab color="primary" aria-label="Example icon button with a delete icon">Asignar</button> -->
+      <button type="button" title="Asignar"  class="btn btn-primary btn-sm round fas fa-user " ></button>
+      <button type="button"  title="Descartar" class="btn btn-danger  btn-small round fas fa-trash-alt mx-1" ></button>
+
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="!requestsAllSelected || requestsAllSelected.length <= 0 ">
+  <div class="col-sm-12">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">No se encotrarón registros</h1>
+        <p class="lead"></p>
+      </div>
+    </div>
+  </div>
+</div>

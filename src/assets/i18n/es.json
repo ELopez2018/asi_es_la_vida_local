@@ -1,0 +1,27 @@
+{
+  "Search": "Búsqueda",
+  "User Registration": "Registro de Usuarios",
+  "Record": "Expediente",
+  "Records": "Expedientes",
+  "File number": "Número  de expediente",
+  "Name": "Nombre",
+  "Second name": "Segundo nombre",
+  "Surname": "Primer apellido",
+  "Second surname": "Segundo apellido",
+  "Upload file": "Subida de archivo",
+  "Description": "Descripcion",
+  "File": "Archivo",
+  "Files": "Archivos",
+  "Id": "No",
+  "Url": "Url",
+  "Registry": "Registro",
+  "Setting": "Configuración",
+  "Roles": "Roles",
+  "Home": "Inicio",
+  "Requests Registration":"Registro de Solicitudes",
+  "Requests":"Solicitudes",
+  "Products": "Productos",
+  "Sales": "Ventas",
+  "Price": "Precios"
+
+}
