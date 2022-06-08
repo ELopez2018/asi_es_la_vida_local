@@ -6,7 +6,7 @@ import { DashboardComponent } from './main/dashboard/dashboard.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/main',
+    redirectTo: 'main',
     pathMatch: 'full',
   },
   {
@@ -24,11 +24,12 @@ const routes: Routes = [
         (m) => m.RequestsStatusModule
       ),
   },
+  { path: 'sale', loadChildren: () => import('./components/sale/sale.module').then(m => m.SaleModule) },
   // { path: 'registro-de-roles', loadChildren: () => import('./components/role-register/role-register.module').then(m => m.RoleRegisterModule) },
   // { path: 'administracion-solicitudes', loadChildren: () => import('./components/request-management/request-management.module').then(m => m.RequestManagementModule) },
   // { path: 'administracion-usuarios', loadChildren: () => import('./components/user-management/user-management.module').then(m => m.UserManagementModule) },
   // { path: 'requestBoxInfo', loadChildren: () => import('./main/request-box-info/request-box-info.module').then(m => m.RequestBoxInfoModule) },
-  { path: '**', redirectTo: '/main' },
+  { path: '**', redirectTo: 'main' },
 ];
 
 @NgModule({

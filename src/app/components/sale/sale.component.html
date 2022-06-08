@@ -1,0 +1,89 @@
+<div class="container-fluid sale">
+  <h3 class="box-title text-center h1">Ventas</h3>
+  <div class="row sale__info">
+    <div class="col-sm-2 sale__totales">
+      <div>
+        <div>Buscar por</div>
+        <select class="form-control custom-select">
+          <option value="">Nombre</option>
+          <option value="">Descripcion</option>
+        </select>
+      </div>
+
+      <div>
+        <div>Busqueda</div>
+        <input formControlName="name" type="text" class="form-control form-control-danger" placeholder="Busqueda">
+      </div>
+
+      <div>
+        <div>Cantidad</div>
+        <input formControlName="name" type="text" class="form-control form-control-danger" placeholder="Cantidad">
+      </div>
+
+    </div>
+    <div class="col-sm-7 sale__carousel">
+      <div class="carousel-container">
+        <!-- <i class="fa-solid fa-spinner fa-spin-pulse fa-2xl loader2" ></i> -->
+        <owl-carousel-o [options]="customOptions">
+          <!-- <ng-template carouselSlide *ngFor="let img of images"><img src="{{img}}" alt=""></ng-template> -->
+          <ng-template carouselSlide>
+            <app-product-card></app-product-card>
+          </ng-template>
+
+        </owl-carousel-o>
+      </div>
+    </div>
+    <div class="col-sm-3 sale__totales">
+      <div class="input-group input-group-lg  ">
+        <span class="input-group-text sombra " id="inputGroup-sizing-lg">Base</span>
+        <input type="text" class="form-control text-right sombra" aria-label="Sizing example input"
+          placeholder="$1.000.000.000.00" aria-describedby="inputGroup-sizing-lg">
+      </div>
+      <div class="input-group input-group-lg  ">
+        <span class="input-group-text sombra" id="inputGroup-sizing-lg">I.V.A.</span>
+        <input type="text" class="form-control text-right sombra" aria-label="Sizing example input" placeholder="$ 0.00"
+          aria-describedby="inputGroup-sizing-lg">
+      </div>
+      <div class="input-group input-group-lg  " *ngIf="true">
+        <span class="input-group-text sombra" id="inputGroup-sizing-lg">Desc.</span>
+        <input type="text" class="form-control text-right sombra" aria-label="Sizing example input"
+          placeholder="$ 1.000.000.000.00" aria-describedby="inputGroup-sizing-lg">
+      </div>
+      <div class="input-group input-group-lg ">
+        <span class="input-group-text sombra" id="inputGroup-sizing-lg">Total</span>
+        <input type="text" class="form-control text-right sombra" aria-label="Sizing example input"
+          placeholder="$1.000.000.000.00" aria-describedby="inputGroup-sizing-lg">
+      </div>
+    </div>
+  </div>
+  <!-- TABLA -->
+  <div class="row mt-3 shadow-sm p-3 mb-1 bg-light  rounded" >
+
+    <div class="col-sm-1  text-center">Cantidad</div>
+    <div class="col-sm-1  text-center">Presentacion</div>
+    <div class="col-sm-3  text-center">Descripcion</div>
+    <div class="col-sm-1  text-center">Moneda</div>
+    <div class="col-sm-1  text-center">Tasa</div>
+    <div class="col-sm-1  text-center">sku</div>
+    <div class="col-sm-1  text-center" >Descuento</div>
+    <div class="col-sm-1  text-center">Precio</div>
+    <div class="col-sm-1  text-center">Total</div>
+    <div class="col-sm-1  text-center">Accion</div>
+
+
+</div>
+  <div class="row" *ngFor="let item of venta">
+
+      <div class="col-sm-1 text-center">{{item.qty}}</div>
+      <div class="col-sm-1 text-center">{{item.presentacion}}</div>
+      <div class="col-sm-3 text-center">{{item.description}}</div>
+      <div class="col-sm-1 text-center">{{item.moneda}}</div>
+      <div class="col-sm-1 text-center">{{item.trm}}</div>
+      <div class="col-sm-1 text-center">{{item.sku}}</div>
+      <div class="col-sm-1 text-center"  >{{item.descuento}}</div>
+      <div class="col-sm-1 text-center">{{item.precio}}</div>
+      <div class="col-sm-1 text-center">{{item.qty * item.precio}}</div>
+      <div class="col-sm-1 text-center"></div>
+
+  </div>
+</div>

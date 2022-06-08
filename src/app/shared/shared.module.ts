@@ -11,7 +11,8 @@ import { UploadFilesComponent } from './upload-files/upload-files.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslationComponent } from './translation/translation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ProductCardComponent } from '@root/components/product-register/product-card/product-card.component';
 const COMPONENTS = [
   BreadcrumbsComponent,
   HeaderComponent,
@@ -19,13 +20,22 @@ const COMPONENTS = [
   LoadingComponent,
   UploadFilesComponent,
   TranslationComponent,
+   ProductCardComponent,
 ];
 
-const MODULES = [RouterModule, CommonModule, MaterialModule, TranslateModule, ReactiveFormsModule, FormsModule];
+const MODULES = [
+  RouterModule,
+  CommonModule,
+  MaterialModule,
+  TranslateModule,
+  ReactiveFormsModule,
+  FormsModule,
+  CarouselModule,
+];
 
 @NgModule({
   declarations: [...COMPONENTS],
   imports: [...MODULES],
-  exports: [...COMPONENTS,...MODULES ],
+  exports: [...COMPONENTS, ...MODULES],
 })
 export class SharedModule {}

@@ -39,13 +39,13 @@ export class CoreModule {
     static forRoot() {
         return {
             ngModule: CoreModule,
-            providers: [
-                // {
-                //     provide: HTTP_INTERCEPTORS,
-                //     useClass: InterceptorService,
-                //     multi: true
-                //   },
-            ]
+            // providers: [
+            //     // {
+            //     //     provide: HTTP_INTERCEPTORS,
+            //     //     useClass: InterceptorService,
+            //     //     multi: true
+            //     //   },
+            // ]
         };
     }
 }

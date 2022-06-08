@@ -11,13 +11,13 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">{{ 'Name' | translate }}</label>
             <div class="col-md-9">
-              <input formControlName="name" type="text" class="form-control form-control-danger" placeholder="Nombre del producto ejemplo: Aceite">
-              <!-- <select  class="form-control custom-select">
-                <option value="">Cedula de Ciudadania</option>
-                <option value="">Cedula de Extranjeria</option>
-              </select> -->
-              <!-- <small class="form-control-feedback"> Seleccione un tipo </small> -->
-              <!-- <small class="form-control-feedback"> This is inline help </small> -->
+              <div
+              [class]=" name?.invalid && name?.touched  ? 'form-group has-danger  row': name?.touched  ?  'form-group has-success row' :'form-group  row'">
+              <input formControlName="name" type="text" class="form-control form-control-danger"
+                placeholder="Nombre del producto ejemplo: Aceite">
+                <small *ngIf="name?.invalid && name?.touched" class="form-control-feedback"> Debe ingresar un nombre
+                </small>
+              </div>
             </div>
           </div>
         </div>
@@ -26,7 +26,8 @@
             <!-- <div class="form-group has-danger row"> -->
             <label class="control-label text-right col-md-3">Descripcion Corta</label>
             <div class="col-md-9">
-              <input formControlName="short_description" type="text" class="form-control form-control-danger" placeholder="Asi aparecera en la factura: ej: Aceite Comestible Diana">
+              <input formControlName="short_description" type="text" class="form-control form-control-danger"
+                placeholder="Asi aparecera en la factura: ej: Aceite Comestible Diana">
               <!-- <small class="form-control-feedback"> This field has error. </small> -->
             </div>
           </div>
@@ -37,38 +38,42 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">Descripcion detallada</label>
             <div class="col-md-9">
-              <input formControlName="description" type="text" class="form-control form-control-danger" placeholder="Sea especifico, esto ayudara a elejir">
+              <input formControlName="description" type="text" class="form-control form-control-danger"
+                placeholder="Sea especifico, esto ayudara a elejir">
               <!-- <small class="form-control-feedback"> This is inline help </small> -->
             </div>
           </div>
         </div>
         <div class="col-md-6">
-          <div [class]=" email?.invalid && email?.touched  ? 'form-group has-danger  row': email?.touched  ?  'form-group has-success row' :'form-group  row'">
+          <div
+            class="form-group  row">
             <!-- <div class="form-group has-danger row"> -->
             <label class="control-label text-right col-md-3">Unidad de medida</label>
             <div class="col-md-9">
-              <input formControlName="type_packaging" type="text" class="form-control form-control-danger" placeholder="Kg. CC, m3, Litros">
-              <small *ngIf="email?.invalid && email?.touched" class="form-control-feedback"> El correo es inválido </small>
+              <input formControlName="type_packaging" type="text" class="form-control form-control-danger"
+                placeholder="Kg, CC, m3, Litros... etc">
             </div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <div [class]="pnombre?.invalid && pnombre?.touched  ? 'form-group has-danger  row': pnombre?.touched  ?  'form-group has-success row' :'form-group row'">
+          <div
+            class="form-group row">
             <label class="control-label text-right col-md-3">Tipo de Presentación</label>
             <div class="col-md-9">
-              <input formControlName="type_presentation" type="text" class="form-control" placeholder="Caja, Botella, Unidad, Bolsa...">
-              <small *ngIf="pnombre?.invalid && pnombre?.touched" class="form-control-feedback"> Es obligatorio un nombre </small>
+              <input formControlName="type_presentation" type="text" class="form-control"
+                placeholder="Caja, Botella, Unidad, Bolsa...">
             </div>
           </div>
         </div>
         <div class="col-md-6">
-          <div [class]="pnombre?.invalid && pnombre?.touched  ? 'form-group has-danger  row': pnombre?.touched  ?  'form-group has-success row' :'form-group row'">
+          <div
+            class="form-group row">
             <label class="control-label text-right col-md-3">SKU</label>
             <div class="col-md-9">
-              <input formControlName="sku" type="text" class="form-control" placeholder="Caja, Botella, Unidad, Bolsa...">
-              <small *ngIf="pnombre?.invalid && pnombre?.touched" class="form-control-feedback"> Es obligatorio un nombre </small>
+              <input  formControlName="sku" type="text" class="form-control"
+                placeholder="Caja, Botella, Unidad, Bolsa...">
             </div>
           </div>
         </div>
@@ -82,7 +87,7 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">Precio Costo</label>
             <div class="col-md-9">
-              <input  formControlName="apellidom" type="text" class="form-control form-control-danger" placeholder="0">
+              <input formControlName="price_cost" type="number" class="form-control form-control-danger" placeholder="0">
               <!-- <small class="form-control-feedback"> This field has error. </small> -->
             </div>
           </div>
@@ -91,7 +96,7 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">IVA</label>
             <div class="col-md-9">
-              <input  formControlName="taxes" type="text" class="form-control form-control-danger" placeholder="IVA">
+              <input formControlName="taxes" type="number" class="form-control form-control-danger" placeholder="IVA">
               <!-- <small class="form-control-feedback"> Elija su género </small> -->
             </div>
           </div>
@@ -103,7 +108,8 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">PVP</label>
             <div class="col-md-9">
-              <input  formControlName="regular_price" type="text" class="form-control form-control-danger" placeholder=" Precio en Dolares">
+              <input formControlName="regular_price" type="number" class="form-control form-control-danger"
+                placeholder=" Precio en Dolares">
               <!-- <small class="form-control-feedback"> This field has error. </small> -->
             </div>
           </div>
@@ -112,7 +118,8 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">Precio Descuento</label>
             <div class="col-md-9">
-              <input  formControlName="sale_price" type="text" class="form-control form-control-danger" placeholder=" Precio en Dolares">
+              <input formControlName="sale_price" type="number" class="form-control form-control-danger"
+                placeholder=" Precio en Dolares">
               <!-- <small class="form-control-feedback"> Elija su género </small> -->
             </div>
           </div>
@@ -126,7 +133,8 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">Estatus</label>
             <div class="col-md-9">
-              <mat-slide-toggle formControlName="status" color="primary">{{ status?.value ? 'Activo' : 'Inactivo'}}</mat-slide-toggle>
+              <mat-slide-toggle formControlName="status" color="primary">{{ status?.value ? 'Activo' : 'Inactivo'}}
+              </mat-slide-toggle>
             </div>
           </div>
         </div>
@@ -134,7 +142,8 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">Estado del Inventario</label>
             <div class="col-md-9">
-              <mat-slide-toggle formControlName="stock_status" color="primary">{{stock_status?.value ? 'En stock' : 'Agotado'}}</mat-slide-toggle>
+              <mat-slide-toggle formControlName="stock_status" color="primary">{{stock_status?.value ? 'En stock' :
+                'Agotado'}}</mat-slide-toggle>
             </div>
           </div>
         </div>
@@ -142,9 +151,22 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group row">
-            <label class="control-label text-right col-md-3">Existencia Minima</label>
+            <label class="control-label text-right col-md-3">En Oferta</label>
             <div class="col-md-9">
-              <input  formControlName="sale_price" type="text" class="form-control form-control-danger" placeholder="0">
+              <mat-slide-toggle formControlName="discount" color="primary">{{ discount?.value ? 'Activo' : 'Inactivo'}}
+              </mat-slide-toggle>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="control-label text-right col-md-3">Existencia Mínima</label>
+            <div class="col-md-9">
+              <input formControlName="stock_min" type="number" class="form-control form-control-danger" placeholder="0">
             </div>
           </div>
         </div>
@@ -152,7 +174,7 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">Existencia Actual</label>
             <div class="col-md-9">
-              <input  formControlName="sale_price" type="text" class="form-control form-control-danger" placeholder="0">
+              <input formControlName="stock" type="number" class="form-control form-control-danger" placeholder="0">
             </div>
           </div>
         </div>
@@ -160,12 +182,21 @@
 
       <h3 class="box-title">Imagenes</h3>
       <hr class="m-t-0 m-b-40">
-       <div class="row">
+      <div class="row">
         <div class="col-md-6">
           <div class="form-group row">
             <label class="control-label text-right col-md-3">Imagen Principal</label>
             <div class="col-md-9">
-              <input  type="file" class="form-control">
+              <input id="image_main" (change)="uploadImage($event,'main')" class="form-control sing-up-form-input"
+                accept="image/png, image/jpeg" name="image_main" type="file" />
+              <fieldset>
+                <div class="img-container">
+                  <span *ngIf="urlImage" (click)="deleteImage(urlImage, 'main')" >X</span>
+                  <img src="{{urlImage.url}}" alt="" *ngIf="urlImage" >
+                  <i class="fa-solid fa-spinner fa-spin-pulse fa-2xl" *ngIf="loading"></i>
+                </div>
+              </fieldset>
+
             </div>
           </div>
         </div>
@@ -173,7 +204,18 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">Catalogo de Imagenes</label>
             <div class="col-md-9">
-              <input  type="file" class="form-control">
+              <input id="image_main" (change)="uploadImage($event,'carousel')" class="form-control sing-up-form-input"
+                accept="image/png, image/jpeg" name="image_main" type="file" />
+              <div class="carousel-container" >
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-2xl loader2" *ngIf="loading2"></i>
+                <owl-carousel-o [options]="customOptions" *ngIf="!loading2">
+                  <!-- <ng-template carouselSlide *ngFor="let img of images"><img src="{{img}}" alt=""></ng-template> -->
+                  <ng-template carouselSlide *ngFor="let img of images">
+                    <app-product-card [image]="img" (itemDelete)="deleteImage($event, 'carousel')" ></app-product-card>
+                  </ng-template>
+
+                </owl-carousel-o>
+              </div>
             </div>
           </div>
         </div>
@@ -185,7 +227,7 @@
         <div class="col-md-6">
           <div class="row">
             <div class="col-md-offset-3 col-md-9">
-              <button (click)="save()" type="button" class="btn btn-success">Guardar</button>
+              <button (click)="save()" type="button" [disabled]="form.invalid" class="btn btn-success">Guardar</button>
               <button type="button" class="btn btn-inverse">Cancelar</button>
             </div>
           </div>
@@ -195,4 +237,3 @@
     </div>
   </form>
 </div>
-

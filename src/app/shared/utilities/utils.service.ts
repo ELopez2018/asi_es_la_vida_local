@@ -430,7 +430,7 @@ private loaderStatus = new Subject<boolean>();
         }
       }
     }
-    return;
+    return null;
   }
 
   getSubseriesTree(dataTree: any, subDataTree: any) {
@@ -473,10 +473,11 @@ private loaderStatus = new Subject<boolean>();
       } else {
         if (array[i].children != undefined) {
           this.hasChildSeries(array[i].children, idParent, objAux);
+          return null;
         }
       }
     }
-    return;
+    return null;
   }
 
 }

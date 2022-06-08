@@ -1,0 +1,42 @@
+.carousel-container,
+.img-container {
+  position: relative;
+  height: 400px;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 30px;
+  border: 1px solid gainsboro;
+}
+owl-carousel-o {
+  height: 400px;
+  width: 300px;
+}
+
+.img-container {
+  padding: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    max-width: 295px;
+    height: auto;
+  }
+  span {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    color: red;
+    font-size: 20px;
+    &:hover{
+      cursor: pointer;
+      font-weight: bolder;
+    }
+  }
+}
+.loader2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
