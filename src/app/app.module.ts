@@ -6,10 +6,6 @@ import { AppComponent } from './app.component';
 
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
-import { EffectsModule } from '@ngrx/effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -42,7 +38,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'es-CO' },
+    // { provide: LOCALE_ID, useValue: 'es-CO' },
   ],
   bootstrap: [AppComponent]
 })

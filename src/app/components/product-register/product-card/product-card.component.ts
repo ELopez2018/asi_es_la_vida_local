@@ -8,6 +8,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ProductCardComponent implements OnInit {
   @Input() image!: any;
   @Input() loading!: boolean;
+  @Input() height: string = 'auto';
+  @Input() width: string = '250px';
+  @Input() showDelete: boolean = true;
   @Output() itemDelete: EventEmitter<any> = new EventEmitter();
   constructor() {}
 

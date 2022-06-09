@@ -11,7 +11,7 @@ import {
 } from 'rxjs/operators';
 import { AuthActions } from '@root/core/store/actions.index';
 
-import { UserModel } from '@models/user.model';
+import { User } from '@interfaces/user.interface';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {  AuthService } from '@services/auth/auth.service';
 import { Router } from '@angular/router';
@@ -25,7 +25,7 @@ export class AuthEffects {
       // tap((e) => console.log('paso 3 effect', e)),
       switchMap(({ credential }) =>
         this.authService.login$(credential).pipe(
-          map((user: UserModel) => AuthActions.LoginSuccess({ user })),
+          map((user: User) => AuthActions.LoginSuccess({ user })),
           catchError((error: HttpErrorResponse) =>
             of(AuthActions.loginError({ error: error.message }))
           )

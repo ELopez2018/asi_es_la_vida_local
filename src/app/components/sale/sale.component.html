@@ -1,5 +1,5 @@
 <div class="container-fluid sale">
-  <h3 class="box-title text-center h1">Ventas</h3>
+  <!-- <h3 class="box-title text-center h1">Ventas</h3> -->
   <div class="row sale__info">
     <div class="col-sm-2 sale__totales">
       <div>
@@ -12,52 +12,110 @@
 
       <div>
         <div>Busqueda</div>
-        <input formControlName="name" type="text" class="form-control form-control-danger" placeholder="Busqueda">
+        <input type="text" class="form-control form-control-danger" placeholder="Busqueda">
       </div>
 
       <div>
         <div>Cantidad</div>
-        <input formControlName="name" type="text" class="form-control form-control-danger" placeholder="Cantidad">
+        <input type="text" class="form-control form-control-danger" placeholder="Cantidad">
       </div>
 
     </div>
     <div class="col-sm-7 sale__carousel">
-      <div class="carousel-container">
-        <!-- <i class="fa-solid fa-spinner fa-spin-pulse fa-2xl loader2" ></i> -->
+      <div class="carousel-container" *ngIf="showCarousel">
         <owl-carousel-o [options]="customOptions">
-          <!-- <ng-template carouselSlide *ngFor="let img of images"><img src="{{img}}" alt=""></ng-template> -->
-          <ng-template carouselSlide>
-            <app-product-card></app-product-card>
+          <ng-template carouselSlide *ngFor="let item of products">
+            <app-product-card [showDelete]="false" [height]="'auto'" [width]="'110px'" [image]=" item  ">
+            </app-product-card>
           </ng-template>
-
         </owl-carousel-o>
       </div>
     </div>
     <div class="col-sm-3 sale__totales">
       <div class="input-group input-group-lg  ">
-        <span class="input-group-text sombra " id="inputGroup-sizing-lg">Base</span>
-        <input type="text" class="form-control text-right sombra" aria-label="Sizing example input"
-          placeholder="$1.000.000.000.00" aria-describedby="inputGroup-sizing-lg">
+        <span class="input-group-text sombra">Base</span>
+        <span  class="form-control text-right sombra" aria-label="Sizing example input" placeholder="$ 0.00"
+          aria-describedby="inputGroup-sizing-lg">{{ totalBase | number:'.2-2' }}</span>
       </div>
       <div class="input-group input-group-lg  ">
-        <span class="input-group-text sombra" id="inputGroup-sizing-lg">I.V.A.</span>
-        <input type="text" class="form-control text-right sombra" aria-label="Sizing example input" placeholder="$ 0.00"
-          aria-describedby="inputGroup-sizing-lg">
+        <span class="input-group-text sombra">I.V.A.</span>
+        <span  class="form-control text-right sombra" aria-label="Sizing example input" placeholder="$ 0.00"
+          aria-describedby="inputGroup-sizing-lg"> {{ totalTax | number:'.2-2' }}</span>
       </div>
-      <div class="input-group input-group-lg  " *ngIf="true">
-        <span class="input-group-text sombra" id="inputGroup-sizing-lg">Desc.</span>
-        <input type="text" class="form-control text-right sombra" aria-label="Sizing example input"
-          placeholder="$ 1.000.000.000.00" aria-describedby="inputGroup-sizing-lg">
+      <div class="input-group input-group-lg  " *ngIf="totalDiscount > 0">
+        <span class="input-group-text sombra">Desc</span>
+        <span  class="form-control text-right sombra" aria-label="Sizing example input" placeholder="$0.00"
+          aria-describedby="inputGroup-sizing-lg"> {{ totalDiscount | number:'.2-2' }}</span>
       </div>
       <div class="input-group input-group-lg ">
-        <span class="input-group-text sombra" id="inputGroup-sizing-lg">Total</span>
-        <input type="text" class="form-control text-right sombra" aria-label="Sizing example input"
-          placeholder="$1.000.000.000.00" aria-describedby="inputGroup-sizing-lg">
+        <span class="input-group-text sombra">Total</span>
+        <span  class="form-control text-right sombra" aria-label="Sizing example input" placeholder="$0.00"
+          aria-describedby="inputGroup-sizing-lg">{{ totalPay | number:'.2-2' }} </span>
       </div>
     </div>
   </div>
   <!-- TABLA -->
-  <div class="row mt-3 shadow-sm p-3 mb-1 bg-light  rounded" >
+  <div class="row mt-3" *ngIf="dataSource">
+    <section class="example-container mat-elevation-z8" tabindex="0">
+      <table mat-table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="index">
+          <th mat-header-cell   class="headerCustom" *matHeaderCellDef> N </th>
+          <td mat-cell *matCellDef="let index = index"> {{index + 1 }} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="qty">
+          <th mat-header-cell *matHeaderCellDef class="headerCustom"> Cant. </th>
+          <td class="text-center" mat-cell *matCellDef="let element"> {{element.qty}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef class="headerCustom"> Descripción </th>
+          <td class="text-left" mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="presentacion">
+          <th mat-header-cell *matHeaderCellDef class="headerCustom"> Presentación </th>
+          <td class="text-center" mat-cell *matCellDef="let element"> {{element.presentacion}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="moneda">
+          <th mat-header-cell *matHeaderCellDef class="headerCustom"> Moneda </th>
+          <td class="text-center" mat-cell *matCellDef="let element"> {{element.moneda  }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="precio">
+          <th mat-header-cell *matHeaderCellDef class="headerCustom"> Precio </th>
+          <td class="text-center" mat-cell *matCellDef="let element"> {{element.precio | number:'.2-2'  }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="descuento">
+          <th mat-header-cell *matHeaderCellDef class="headerCustom"> Descuento </th>
+          <td class="text-center" mat-cell *matCellDef="let element"> {{element.descuento | number:'.2-2'  }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="total">
+          <th mat-header-cell *matHeaderCellDef class="headerCustom"> Total </th>
+          <td class="text-right" mat-cell *matCellDef="let element"> {{(element.qty * element.precio) - element.descuento| number:'.2-2'  }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef class="headerCustom"> Actions </th>
+          <td class="ps-4 text-left" mat-cell *matCellDef="let index = index" > <button mat-mini-fab color="warn" (click)="deleteItem( index)"><i
+                class="fa-solid fa-trash"></i></button></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </section>
+  </div>
+
+  <!-- <div class="row mt-3 shadow-sm p-3 mb-1 bg-light  rounded" >
 
     <div class="col-sm-1  text-center">Cantidad</div>
     <div class="col-sm-1  text-center">Presentacion</div>
@@ -85,5 +143,5 @@
       <div class="col-sm-1 text-center">{{item.qty * item.precio}}</div>
       <div class="col-sm-1 text-center"></div>
 
-  </div>
+  </div> -->
 </div>

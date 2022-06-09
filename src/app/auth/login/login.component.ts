@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticateModel } from '@models/security/authenticate.model';
-import { UserModel } from '@models/user.model';
+import { User } from '@interfaces/user.interface';
 import { UtilsService } from '@root/shared/utilities/utils.service';
 import { LocalStorageService } from '@services/local-storage.service';
 import { Subscription } from 'rxjs';

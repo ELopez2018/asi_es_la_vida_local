@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserFacadeService } from '@facades/auth/user-facade.service';
-import { UserModel } from '@models/user.model';
+import { User } from '@interfaces/user.interface';
 import { AuthFacadeService } from '@root/auth/login/auth.facade.service';
 import { LocalStorageService } from '@services/local-storage.service';
 declare function customInitFunctions(): any;
@@ -12,7 +12,7 @@ declare function customInitFunctions(): any;
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  user!: UserModel;
+  user!: User;
   constructor(
     private localStorageService: LocalStorageService,
     private userFacade: AuthFacadeService

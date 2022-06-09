@@ -1,7 +1,7 @@
-import { UserModel } from '@models/user.model';
+import { User } from '@interfaces/user.interface';
 
 
-export const mockCurrentUser = (): UserModel => {
+export const mockCurrentUser = (): User => {
     return {
         id: 132,
         cc: '13206',

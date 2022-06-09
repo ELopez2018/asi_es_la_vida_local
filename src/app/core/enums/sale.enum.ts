@@ -1,5 +1,5 @@
-export enum LoggerEnum {
-  'TRACE' = 'TRACE',
+export enum StatusEnum {
+  'PAGA' = 'TRACE',
   'DEBUG' = 'DEBUG',
   'INFO' = 'INFO',
   'LOG' = 'LOG',

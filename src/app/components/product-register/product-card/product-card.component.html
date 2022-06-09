@@ -1,8 +1,8 @@
-<div class="img-conatiner"*ngIf="image && image.url">
+<div class="img-conatiner"*ngIf="image && image.url" style="width: {{ width }};">
   <div class="row">
-    <div class="col-sm-12 card">
-      <span (click)="onItemDelete(image)" >X</span>
-      <img src="{{image.url}}" alt="img-carousel">
+    <div class="col-sm-12 card" >
+      <span (click)="onItemDelete(image)" *ngIf="showDelete" >X</span>
+      <img style="height:{{ height }} ; width:100%;" src="{{image.url}}" alt="img-carousel">
     </div>
   </div>
 </div>

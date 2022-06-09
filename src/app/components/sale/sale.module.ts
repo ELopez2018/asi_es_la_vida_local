@@ -1,5 +1,5 @@
 import { SharedModule } from '@root/shared/shared.module';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SaleRoutingModule } from './sale-routing.module';
@@ -12,6 +12,9 @@ import { SaleComponent } from './sale.component';
     CommonModule,
     SaleRoutingModule,
     SharedModule
-  ]
+  ],
+  providers: [
+    //{ provide: LOCALE_ID, useValue: 'es-CO' },
+  ],
 })
 export class SaleModule { }

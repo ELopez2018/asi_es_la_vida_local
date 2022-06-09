@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
-import { UserModel } from "@models/user.model";
+import { User } from "@interfaces/user.interface";
 
 import { environment } from "@environments/environment";
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
@@ -37,10 +37,10 @@ export class AuthService {
     }
 
 
-    createUser$(user: UserModel): Observable<UserModel> {
+    createUser$(user: User): Observable<User> {
         // console.log("Create User", user);
         return this.http
-            .post<UserModel>(this.urlApi + `users`, user, this.httpOptions)
+            .post<User>(this.urlApi + `users`, user, this.httpOptions)
             .pipe(
                 tap((resp) => {
                     // console.log('REPUESTA: ', resp)
@@ -50,10 +50,10 @@ export class AuthService {
         // return of(user);
     }
 
-    login$(credential: AuthenticateModel): Observable<UserModel> {
+    login$(credential: AuthenticateModel): Observable<User> {
       console.log('PASO 4 AuthService-> login$');
         return this.http
-            .post<UserModel>(this.urlApi + `login`, credential)
+            .post<User>(this.urlApi + `login`, credential)
             .pipe(
                 map(
 

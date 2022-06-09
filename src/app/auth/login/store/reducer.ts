@@ -1,5 +1,5 @@
 
-import { UserModel } from '@models/user.model';
+import { User } from '@interfaces/user.interface';
 import { Action, createReducer, on } from '@ngrx/store';
 import { AuthActions } from '@root/core/store/actions.index';
 
@@ -7,7 +7,7 @@ import { AuthActions } from '@root/core/store/actions.index';
 
 
 export interface State {
-  user: UserModel | null;
+  user: User | null;
   error: string | null;
   loading: boolean;
   message: string | null;

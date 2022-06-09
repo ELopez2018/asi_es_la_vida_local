@@ -1,35 +1,35 @@
 import { Injectable } from '@angular/core';
-import { UserModel } from '@models/user.model';
-import { appConstants } from '../constants';
-
+import { User } from '@interfaces/user.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocalStorageService {
+  constructor() {}
 
-  constructor() { }
 
-  setItem(key:any, item:any) {
-    localStorage.setItem(key, JSON.stringify(item));
+  setSale(sale: any) {
+    localStorage.setItem('sale', JSON.stringify(sale));
   }
-
-  getItem(key: string): UserModel {
-    let user!: any;
-    user=localStorage.getItem(key);
-    return JSON.parse(user);
+  getSale(): any {
+    return JSON.parse(localStorage.getItem('sale'));
   }
-
+  updateSale(sale: any) {
+    localStorage.removeItem('sale');
+    this.setSale(sale)
+  }
   removeItem(key: string) {
     localStorage.removeItem(key)
   }
-
+  setItem(key: any, item: any) {
+    localStorage.setItem(key, JSON.stringify(item));
+  }
+  getItem(key: string): User {
+    let user!: any;
+    user = localStorage.getItem(key);
+    return JSON.parse(user);
+  }
   removeAll() {
-    console.log('borró');
     localStorage.clear();
   }
-
-//   getToken() {
-//     return JSON.parse(localStorage.getItem(appConstants.TOKEN_APP));
-// }
 }

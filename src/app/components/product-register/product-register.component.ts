@@ -227,19 +227,20 @@ export class ProductRegisterComponent implements OnInit {
   public save(): void {
     this.setImagesForm();
     let value = this.form.value;
-    console.log(this.form.value);
     value.sku = this.sku;
-    console.log(value);
     this.productService.saveProduct$(value).subscribe(response =>{
-      this.form.reset();
-      this.urlImage =null;
-      this.images =[];
-      this.form.get('sku')?.setValue(this.getSku());
-      this.messageService.showCustom(response.message, null, 'error');
+      console.log(response);
+      this.messageService.showCustom(response?.message, null, "success");
     }, error => {
       this.messageService.showCustom(error.error.message, null, 'error');
     })
+  }
 
+  private reset() {
+    this.form.reset();
+    this.urlImage =null;
+    this.images =[];
+    this.form.get('sku')?.setValue(this.getSku());
   }
 }
 

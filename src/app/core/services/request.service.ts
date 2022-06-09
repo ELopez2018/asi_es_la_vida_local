@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { UserModel } from '@models/user.model';
+import { User } from '@interfaces/user.interface';
 
 import { environment } from '@environments/environment';
 import {

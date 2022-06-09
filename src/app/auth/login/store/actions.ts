@@ -1,5 +1,5 @@
 import { AuthenticateModel } from '@models/security/authenticate.model';
-import { UserModel } from '@models/user.model';
+import { User } from '@interfaces/user.interface';
 import { createAction, props } from '@ngrx/store';
 
 export enum LoginActionType {
@@ -25,7 +25,7 @@ export const Login = createAction(
 
 export const LoginSuccess = createAction(
   LoginActionType.LoginSuccess,
-  props<{ user: UserModel }>()
+  props<{ user: User }>()
 );
 
 export const Logout = createAction(LoginActionType.Logout);
@@ -48,5 +48,5 @@ export const loginMsg = createAction(
 
 export const setUser = createAction(
   LoginActionType.setUser,
-  props<{ user: UserModel }>()
+  props<{ user: User }>()
 );

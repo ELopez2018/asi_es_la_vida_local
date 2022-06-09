@@ -5,6 +5,7 @@
   },
   "version": 1,
   "newProjectRoot": "projects",
+  "sourceLocale" : "es-CO",
   "projects": {
     "routing": {
       "projectType": "application",

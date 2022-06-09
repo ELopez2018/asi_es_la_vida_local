@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { AuthenticateModel } from '@models/security/authenticate.model';
-import { UserModel } from '@models/user.model';
+import { User } from '@interfaces/user.interface';
 import * as fromAppRoot from '@root/core/store/reducer.index';
 import { AuthActions } from '@root/core/store/actions.index';
 import { LocalStorageService } from '@services/local-storage.service';
@@ -19,13 +19,13 @@ export class AuthFacadeService {
     private router: Router
   ) {}
 
-  setUser(user: UserModel) {
+  setUser(user: User) {
     this.store.dispatch(AuthActions.setUser({ user }));
   }
   getErrorLogin$(): Observable<string | null> {
     return this.store.select(fromAppRoot.getLoginError);
   }
-  getCurrentUser$(): Observable<UserModel | null> {
+  getCurrentUser$(): Observable<User | null> {
     return this.store.select(fromAppRoot.getAuthUser);
   }
   isLoggedIn$(): Observable<boolean> {
