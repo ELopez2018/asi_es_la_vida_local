@@ -1,9 +1,12 @@
+import { Items } from './../../core/interfaces/items.interface';
+import { LocalStorageService } from '@services/local-storage.service';
 import { ProductService } from './../../core/services/product.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { saleMock } from '@root/core/mocks/sale.mock';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Product } from '@interfaces/product.interface';
 import { PathServerImg } from '@interfaces/path-server-Img.interface';
+import { MatTable } from '@angular/material/table';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -56,6 +59,7 @@ export class SaleComponent implements OnInit {
     },
     nav: false,
   };
+  @ViewChild(MatTable) table: MatTable<PeriodicElement>;
   public showCarousel: boolean = true;
   public totalBase:number;
   public totalTax:number;
@@ -63,12 +67,13 @@ export class SaleComponent implements OnInit {
   public totalPay:number;
 
   displayedColumns: string[] = ['index','qty', 'description', 'presentacion', 'moneda', 'precio','descuento', 'total', 'actions' ];
-  dataSource: any[] = saleMock;
-  constructor(private productService: ProductService) {}
+  dataSource: Items[] = saleMock.items;
+  constructor(private productService: ProductService, private localStorageService: LocalStorageService) {}
 
   ngOnInit(): void {
     this.getAllProducts();
-    this.totalizer()
+    this.getItemsFromLocalStorage()
+
   }
   public getAllProducts(): any {
     this.productService.getAllProducts$().subscribe((products) => {
@@ -84,6 +89,10 @@ export class SaleComponent implements OnInit {
     });
   }
 
+  getItemsFromLocalStorage() {
+    this.dataSource = this.localStorageService.getSale().items
+    this.totalizer()
+  }
   totalizer() {
     this.totalBase = 0;
     this.totalTax = 0
@@ -100,5 +109,8 @@ export class SaleComponent implements OnInit {
     this.dataSource.splice(index, 1);
       console.log(index);
     this.totalizer()
+    this.venta.items  = this.dataSource
+    this.table.renderRows();
+    this.localStorageService.updateSale(this.venta)
   }
 }
