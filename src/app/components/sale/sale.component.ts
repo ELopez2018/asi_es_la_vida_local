@@ -60,7 +60,7 @@ export class SaleComponent implements OnInit {
     nav: false,
   };
   @ViewChild(MatTable) table: MatTable<PeriodicElement>;
-  public showCarousel: boolean = true;
+  public showCarousel: boolean = false;
   public totalBase:number;
   public totalTax:number;
   public totalDiscount:number;
@@ -112,5 +112,13 @@ export class SaleComponent implements OnInit {
     this.venta.items  = this.dataSource
     this.table.renderRows();
     this.localStorageService.updateSale(this.venta)
+  }
+
+  addItem(query: string) {
+    console.log('object', query);
+  }
+
+  search(query: string) {
+    this.productService
   }
 }

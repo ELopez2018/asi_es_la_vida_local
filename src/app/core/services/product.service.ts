@@ -22,4 +22,8 @@ export class ProductService {
     const url = `${this.urlApi}products`;
     return this.http.get<ResponseProducts>(url)
   }
+  public getProductsByQuery$(): Observable<ResponseProducts> {
+    const url = `${this.urlApi}products`;
+    return this.http.get<ResponseProducts>(url)
+  }
 }

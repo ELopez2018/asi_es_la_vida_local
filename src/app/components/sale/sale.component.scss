@@ -11,6 +11,7 @@
   }
   &__totales {
     display: flex;
+
     flex-direction: column;
     justify-content: space-evenly;
   }
@@ -21,6 +22,8 @@
   position: relative;
   margin: 0 auto;
   border: 1px solid gainsboro;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 owl-carousel-o {
   height: 100%;
@@ -39,7 +42,7 @@ owl-carousel-o {
   font-weight: bolder;
 }
 .sombra {
-   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 .headerCustom {
@@ -48,7 +51,7 @@ owl-carousel-o {
   font-size: medium;
   text-align: center;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-  rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 .example-container {
   height: 330px;
@@ -59,12 +62,26 @@ table {
   width: 100%;
 }
 .container-fluid {
-  padding: 0px
+  padding: 0px;
 }
 .columnCustom {
   text-align: center;
 }
-tr.mat-row, tr.mat-footer-row, tr.mat-header-row {
- height: 35px;
+tr.mat-row,
+tr.mat-footer-row,
+tr.mat-header-row {
+  height: 35px;
 }
 
+.product__info-close {
+  position: absolute;
+  right: 50px;
+  top: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+  z-index: 10;
+}
+.relative {
+  position: relative;
+}

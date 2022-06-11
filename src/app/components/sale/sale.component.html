@@ -17,15 +17,20 @@
 
       <div>
         <div>Cantidad</div>
-        <input type="text" class="form-control form-control-danger" placeholder="Cantidad">
+        <input type="text" #query class="form-control form-control-danger" (keyup.enter)="addItem(query.value)" placeholder="Cantidad">
       </div>
 
     </div>
-    <div class="col-sm-7 sale__carousel">
+    <div class="col-sm-7 relative">
+      <span class="product__info-close" *ngIf="!showCarousel" (click)="showCarousel = !showCarousel" >X</span>
+      <div class="product__info carousel-container" *ngIf="!showCarousel">
+      <app-product-info></app-product-info>
+      <app-product-info></app-product-info>
+      </div>
       <div class="carousel-container" *ngIf="showCarousel">
         <owl-carousel-o [options]="customOptions">
           <ng-template carouselSlide *ngFor="let item of products">
-            <app-product-card [showDelete]="false" [height]="'auto'" [width]="'110px'" [image]=" item  ">
+            <app-product-card [showDelete]="false" [height]="'auto'" [width]="'107px'" [image]=" item  ">
             </app-product-card>
           </ng-template>
         </owl-carousel-o>

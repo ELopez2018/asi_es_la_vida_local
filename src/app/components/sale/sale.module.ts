@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 
 import { SaleRoutingModule } from './sale-routing.module';
 import { SaleComponent } from './sale.component';
+import { ProductInfoComponent } from './product-info/product-info.component';
 
 
 @NgModule({
-  declarations: [SaleComponent],
+  declarations: [SaleComponent, ProductInfoComponent],
   imports: [
     CommonModule,
     SaleRoutingModule,

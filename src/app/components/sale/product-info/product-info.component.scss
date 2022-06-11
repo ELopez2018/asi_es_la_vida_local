@@ -1,0 +1,24 @@
+.row {
+  margin: 0 auto;
+  height: 90%;
+  width: 90%;
+  &:hover {
+    cursor: pointer;
+  }
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.col-sm-10 {
+  background-color: rgba(243, 239, 239, 0.452);
+  color: black
+}
+.product {
+  &__info-text {
+    text-align: center;
+
+  }
+  &__close {
+    position:absolute;
+    right: 10px;
+    top: 10px;
+  }
+}
