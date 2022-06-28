@@ -7,7 +7,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./product-info.component.scss']
 })
 export class ProductInfoComponent implements OnInit {
-@Input() products: Product[]
+@Input() products: Product
 @Output() product: EventEmitter<Product> = new EventEmitter()
   constructor() { }
 

@@ -10,9 +10,10 @@
         </select>
       </div>
 
-      <div>
+      <div class="sale__search-input">
         <div>Busqueda</div>
-        <input type="text" class="form-control form-control-danger" placeholder="Busqueda">
+        <i class="fa-solid fa-circle-notch fa-spin" style="--fa-animation-duration: 0.45s;" *ngIf="showSpinner"  ></i>
+        <input type="text" (focus)="searchProduct(query.value)"  (mouseenter)="searchProduct(query.value)"  (click)="searchProduct(query.value)"  [formControl]="search" #query   placeholder="Buscar.." class="form-control">
       </div>
 
       <div>
@@ -23,9 +24,8 @@
     </div>
     <div class="col-sm-7 relative">
       <span class="product__info-close" *ngIf="!showCarousel" (click)="showCarousel = !showCarousel" >X</span>
-      <div class="product__info carousel-container" *ngIf="!showCarousel">
-      <app-product-info></app-product-info>
-      <app-product-info></app-product-info>
+      <div class="product__info carousel-container"  *ngIf="!showCarousel">
+      <app-product-info [products]="item"  *ngFor="let item of productsFound"></app-product-info>
       </div>
       <div class="carousel-container" *ngIf="showCarousel">
         <owl-carousel-o [options]="customOptions">

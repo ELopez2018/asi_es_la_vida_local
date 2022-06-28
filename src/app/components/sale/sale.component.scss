@@ -15,6 +15,9 @@
     flex-direction: column;
     justify-content: space-evenly;
   }
+  &__search-input {
+    position: relative;
+  }
 }
 .carousel-container {
   height: 200px;
@@ -84,4 +87,11 @@ tr.mat-header-row {
 }
 .relative {
   position: relative;
+}
+.fa-solid.fa-circle-notch.fa-spin {
+  position: absolute;
+  right: 5px;
+  color: #d1cece;
+  font-size: 24px;
+  bottom: 6px;
 }

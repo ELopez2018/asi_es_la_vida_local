@@ -22,8 +22,9 @@ export class ProductService {
     const url = `${this.urlApi}products`;
     return this.http.get<ResponseProducts>(url)
   }
-  public getProductsByQuery$(): Observable<ResponseProducts> {
-    const url = `${this.urlApi}products`;
+  public getProductsByQuery$(query: string): Observable<ResponseProducts> {
+    const params= (query && query !=='' ) ? `?search=${query}` : '';
+    const url = `${this.urlApi}products${params}`;
     return this.http.get<ResponseProducts>(url)
   }
 }
