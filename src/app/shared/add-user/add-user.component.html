@@ -1,0 +1,235 @@
+<mat-dialog-content class="mat-typography">
+<div class="card-body">
+  <form [formGroup]="form" class="form-horizontal">
+    <div class="form-body">
+      <!-- <h3 class="box-title">Información Personal</h3>
+      <hr class="m-t-0 m-b-40"> -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="control-label text-right col-md-3">Tipo de documento</label>
+            <div class="col-md-9">
+              <select  class="form-control custom-select">
+                <option value="">Cedula de Ciudadania</option>
+                <option value="">Cedula de Extranjeria</option>
+              </select>
+              <!-- <small class="form-control-feedback"> Seleccione un tipo </small> -->
+              <!-- <small class="form-control-feedback"> This is inline help </small> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group  row">
+            <!-- <div class="form-group has-danger row"> -->
+            <label class="control-label text-right col-md-3">Numero documento</label>
+            <div class="col-md-9">
+              <input type="text" class="form-control form-control-danger" placeholder="Número de Documento">
+              <!-- <small class="form-control-feedback"> This field has error. </small> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="control-label text-right col-md-3">Usuario</label>
+            <div class="col-md-9">
+              <input formControlName="name" type="text" class="form-control form-control-danger" placeholder="Nickname o usuario">
+              <!-- <small class="form-control-feedback"> This is inline help </small> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div [class]=" email?.invalid && email?.touched  ? 'form-group has-danger  row': email?.touched  ?  'form-group has-success row' :'form-group  row'">
+            <!-- <div class="form-group has-danger row"> -->
+            <label class="control-label text-right col-md-3">Correo</label>
+            <div class="col-md-9">
+              <input formControlName="email" type="text" class="form-control form-control-danger" placeholder="correo@correo.com">
+              <small *ngIf="email?.invalid && email?.touched" class="form-control-feedback"> El correo es inválido </small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div [class]="pnombre?.invalid && pnombre?.touched  ? 'form-group has-danger  row': pnombre?.touched  ?  'form-group has-success row' :'form-group row'">
+            <label class="control-label text-right col-md-3">Primer Nombre</label>
+            <div class="col-md-9">
+              <input formControlName="pnombre" type="text" class="form-control" placeholder="Primer Nombre">
+              <small *ngIf="pnombre?.invalid && pnombre?.touched" class="form-control-feedback"> Es obligatorio un nombre </small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="control-label text-right col-md-3">Segundo Nombre</label>
+            <div class="col-md-9">
+              <input  formControlName="snombre" type="text" class="form-control form-control-danger" placeholder="12n">
+              <!-- <small class="form-control-feedback"> This field has error. </small> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="control-label text-right col-md-3">Primer Apellido</label>
+            <div class="col-md-9">
+              <input formControlName="apellidop" type="text" class="form-control" placeholder="John doe">
+              <!-- <small class="form-control-feedback"> This is inline help </small> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="control-label text-right col-md-3">Segundo Apellido</label>
+            <div class="col-md-9">
+              <input  formControlName="apellidom" type="text" class="form-control form-control-danger" placeholder="12n">
+              <!-- <small class="form-control-feedback"> This field has error. </small> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="control-label text-right col-md-3">Género</label>
+            <div class="col-md-9">
+              <select formControlName="genero" class="form-control custom-select">
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+              </select>
+              <!-- <small class="form-control-feedback"> Elija su género </small> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="control-label text-right col-md-3">Fecha de Nacimiento</label>
+            <div class="col-md-9">
+              <input formControlName="fechanacimiento" type="date" class="form-control" placeholder="dd/mm/yyyy">
+            </div>
+          </div>
+        </div>
+        <!--/span-->
+      </div>
+      <!-- <h3 class="box-title">Dirección</h3>
+      <hr class="m-t-0 m-b-40"> -->
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="control-label text-right col-md-3">Pais</label>
+            <div class="col-md-9">
+              <select formControlName="pais" class="form-control custom-select">
+                <option>Country 1</option>
+                <option>Country 2</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="control-label text-right col-md-3">Departamento</label>
+            <div class="col-md-9">
+              <input formControlName="departamento" type="text" class="form-control">
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="control-label text-right col-md-3">Ciudad</label>
+            <div class="col-md-9">
+              <input formControlName="ciudad" type="text" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="control-label text-right col-md-3">Barrio</label>
+            <div class="col-md-9">
+              <input formControlName="barrio" type="text" class="form-control">
+            </div>
+          </div>
+        </div>
+        <!--/span-->
+
+        <!--/span-->
+      </div>
+      <!--/row-->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="control-label text-right col-md-3">Dirección</label>
+            <div class="col-md-9">
+              <input formControlName="direccion" type="text" class="form-control">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <h3 class="box-title">Información Tributaria</h3>
+      <hr class="m-t-0 m-b-40"> -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="control-label text-right col-md-3">Tipo de Persona</label>
+            <div class="col-md-9">
+              <select class="form-control custom-select">
+                <option>Natural</option>
+                <option>Jurídica</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="control-label text-right col-md-3">R.U.T.</label>
+            <div class="col-md-9">
+              <input type="text" class="form-control">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <h3 class="box-title">Configuración</h3>
+    <hr class="m-t-0 m-b-40"> -->
+
+     <!-- <div class="row">
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="control-label text-right col-md-3">Rol</label>
+            <div class="col-md-9">
+              <select class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
+                <option value="Category 1">Usuario</option>
+                <option value="Category 2">Cliente</option>
+                <option value="Category 3">Asistente</option>
+                <option value="Category 4">Administrador</option>
+                <option value="Category 5">Asociado</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    <hr>
+    <div class="form-actions">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-offset-3 col-md-9">
+              <button (click)="save()" type="button" class="btn btn-success">Guardar</button>
+              <button type="button" class="btn btn-inverse">Cancelar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6"> </div>
+      </div>
+    </div>
+  </form>
+</div>
+</mat-dialog-content>

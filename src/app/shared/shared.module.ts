@@ -13,6 +13,7 @@ import { TranslationComponent } from './translation/translation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ProductCardComponent } from '@root/components/product-register/product-card/product-card.component';
+import { AddUserComponent } from './add-user/add-user.component';
 const COMPONENTS = [
   BreadcrumbsComponent,
   HeaderComponent,
@@ -20,7 +21,8 @@ const COMPONENTS = [
   LoadingComponent,
   UploadFilesComponent,
   TranslationComponent,
-   ProductCardComponent,
+  ProductCardComponent,
+  AddUserComponent
 ];
 
 const MODULES = [

@@ -1,3 +1,4 @@
+import { UserMock } from './../core/mocks/user.mock';
 import { Component, OnInit } from '@angular/core';
 import { UserFacadeService } from '@facades/auth/user-facade.service';
 import { User } from '@interfaces/user.interface';
@@ -22,6 +23,8 @@ export class MainComponent implements OnInit {
     this.user = this.localStorageService.getItem('user');
     if (this.user !== null) {
       this.userFacade.setUser(this.user);
+    } else {
+      this.userFacade.setUser(UserMock);
     }
     customInitFunctions();
   }

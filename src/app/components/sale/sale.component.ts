@@ -1,3 +1,4 @@
+import { Client } from './../../core/interfaces/client.interface';
 import { Items } from './../../core/interfaces/items.interface';
 import { LocalStorageService } from '@services/local-storage.service';
 import { ProductService } from './../../core/services/product.service';
@@ -9,6 +10,11 @@ import { MatTable } from '@angular/material/table';
 import { FormControl } from '@angular/forms';
 import { tap, debounceTime, map } from 'rxjs/operators';
 import { Product } from '@interfaces/product.interface';
+import { Subscription } from 'rxjs';
+import { SaleFacadeService } from './sale.facade';
+import { clientMock } from '@root/core/mocks/client.mock';
+import { MatDialog } from '@angular/material/dialog';
+import { AddUserComponent } from '@root/shared/add-user/add-user.component';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -71,17 +77,24 @@ export class SaleComponent implements OnInit {
   public search = new FormControl('');
   public showSpinner: boolean = false;
   public productsFound: Product[] = [];
+  private subs: Subscription = new Subscription();
+  public client: Client;
   constructor(
     private productService: ProductService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private saleFacade: SaleFacadeService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
     this.getAllProducts();
     this.getItemsFromLocalStorage();
+    this.subscripcions();
+  }
+  subscripcions() {
     this.search.valueChanges
       .pipe(
-        tap((e: any) => {
+        tap((_) => {
           this.showSpinner = true;
           console.log('object');
         }),
@@ -92,6 +105,14 @@ export class SaleComponent implements OnInit {
         })
       )
       .subscribe();
+    const sub1 = this.saleFacade.getClient$().subscribe((client) => {
+      if (!client || !client.name) {
+        this.client = clientMock;
+        return;
+      }
+      this.client = client;
+    });
+    this.subs.add(sub1);
   }
   public getAllProducts(): any {
     this.productService.getAllProducts$().subscribe((products) => {
@@ -147,5 +168,12 @@ export class SaleComponent implements OnInit {
       this.showCarousel = products.data.length <= 0;
       this.productsFound = [...products.data];
     });
+  }
+  public openDialogClient() {
+    const dialogRef = this.dialog.open(AddUserComponent);
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
   }
 }

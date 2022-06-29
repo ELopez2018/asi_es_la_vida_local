@@ -1,4 +1,5 @@
 .sale {
+  position: relative;
   &__info {
     padding-top: 8px;
     padding-bottom: 8px;
@@ -17,6 +18,19 @@
   }
   &__search-input {
     position: relative;
+  }
+  &__client {
+    display: grid;
+    grid-template-columns: 20px fit-content(40%);
+    span {
+      line-height: 17px;
+      padding-bottom: 5px;
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        font-weight: bold;
+      }
+    }
   }
 }
 .carousel-container {

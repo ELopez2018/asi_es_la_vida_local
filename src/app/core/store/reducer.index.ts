@@ -14,6 +14,9 @@ import { InjectionToken } from '@angular/core';
  */
 import * as fromAuth from '@root/auth/login/store/reducer';
 import * as fromRequest from '@root/main/requests/store/reducer';
+import  * as fromSale  from '@root/components/sale/store/sale.reducer';
+
+
 
 /**
  * As mentioned, we treat each reducer like a table in a database. This means
@@ -22,16 +25,15 @@ import * as fromRequest from '@root/main/requests/store/reducer';
 export interface State {
     auth: fromAuth.State;
     request: fromRequest.State;
-    // address: fromAddress.State;
-    // orders: fromOrders.State;
-    // vendor: fromVendor.State;
-    // product: fromProduct.State
+    sale: fromSale.SaleState
+
 }
 export const ROOT_REDUCERS = new InjectionToken<ActionReducerMap<State, Action>>
     ('Root reducers token', {
         factory: () => ({
             auth: fromAuth.reducer,
             request: fromRequest.reducer,
+            sale:fromSale.SaleReducer
         }),
     });
 
@@ -89,114 +91,27 @@ export const getRequestLoading= createSelector(
 )
 //#endregion
 
-// // ================[Address Shipping]==============================================\\
-// //#region Address Shipping
-// export const getAddressShippingState = createFeatureSelector<State, fromAddress.State>(
-//     'address'
-// );
-// export const getCurrentAddressShipping = createSelector(
-//     getAddressShippingState,
-//     fromAddress.getCurrentAddressShipping
-// )
+// ================[Sale]======================================\\
+//#region Sale
+export const getSaleState = createFeatureSelector<State, fromSale.SaleState>(
+  'sale'
+);
+export const getSaleError = createSelector(
+  getSaleState,
+  fromSale.SaleError
+);
+export const getSaleLoading = createSelector(
+  getSaleState,
+  fromSale.SaleLoading
+);
+export const getSaleMessage = createSelector(
+  getSaleState,
+  fromSale.SaleMessage
+);
 
-// export const getAddressesShipping = createSelector(
-//     getAddressShippingState,
-//     fromAddress.getAddressesShipping
-// )
 
-// export const getAddressesShippingLoading = createSelector(
-//     getAddressShippingState,
-//     fromAddress.getAddressShippingLoading
-// )
-// export const getAddressShippingError = createSelector(
-//     getAddressShippingState,
-//     fromAddress.getAddressShippingError
-// )
-// export const getAddressShippingMessage = createSelector(
-//     getAddressShippingState,
-//     fromAddress.getAddressShippingMessage
-// )
-// //#endregion
-
-// // ================[Orders]==============================================\\
-// //#region Orders
-// export const getOrdersState = createFeatureSelector<State, fromOrders.State>(
-//     'orders'
-// );
-// export const getOrdersCurrent = createSelector(
-//     getOrdersState,
-//     fromOrders.getOrdersCurrent
-// )
-// export const getOrdersAll = createSelector(
-//     getOrdersState,
-//     fromOrders.getOrdersAll
-// )
-
-// export const getOrdersLoading = createSelector(
-//     getOrdersState,
-//     fromOrders.getOrdersLoading
-// )
-// export const getOrdersError = createSelector(
-//     getOrdersState,
-//     fromOrders.getOrdersError
-// )
-// export const getOrdersMessage = createSelector(
-//     getOrdersState,
-//     fromOrders.getOrdersMessage
-// )
-// //#endregion
-
-// // ================[Vendor]==============================================\\
-// //#region Vendor
-// export const getVendorState = createFeatureSelector<State, fromVendor.State>(
-//     'vendor'
-// );
-// export const getVendorCurrent = createSelector(
-//     getVendorState,
-//     fromVendor.getVendorCurrent
-// )
-// export const getVendorsAll = createSelector(
-//     getVendorState,
-//     fromVendor.getVendorAll
-// )
-
-// export const getVendorLoading = createSelector(
-//     getVendorState,
-//     fromVendor.getVendorLoading
-// )
-// export const getVendorError = createSelector(
-//     getVendorState,
-//     fromVendor.getVendorError
-// )
-// export const getVendorMessage = createSelector(
-//     getVendorState,
-//     fromVendor.getVendorMessage
-// )
-// //#endregion
-// // ================[ Product]==============================================\\
-// //#region Product
-// export const getProductState = createFeatureSelector<State, fromProduct.State>(
-//     'product'
-// );
-// export const getProductCurrent = createSelector(
-//     getProductState,
-//     fromProduct.getProductCurrent
-// )
-// export const getProductsAll = createSelector(
-//     getProductState,
-//     fromProduct.getProductsAll
-// )
-
-// export const getProductLoading = createSelector(
-//     getProductState,
-//     fromProduct.getProductLoading
-// )
-// export const getProductError = createSelector(
-//     getProductState,
-//     fromProduct.getProductError
-// )
-// export const getProductMessage = createSelector(
-//     getProductState,
-//     fromProduct.getProductMessage
-// )
-// //#endregion
+export const getClient = createSelector(
+  getSaleState,
+  fromSale.getClient
+);
+//#endregion
