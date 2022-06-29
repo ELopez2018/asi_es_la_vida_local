@@ -29,8 +29,8 @@ export const UserMock: User = {
   updated_at: '2021-09-06 08:01:23',
   last_name: 'postman',
   online: 0,
-  nit: 14135235223,
-  cc: 14135235223,
+  nit: "14135235223",
+  cc: "14135235223",
   terms_conditions: '2021-01-16 07:06:00',
   token: {
     token_type: 'Bearer',

@@ -129,7 +129,9 @@ export class SaleComponent implements OnInit {
   }
 
   getItemsFromLocalStorage() {
-    this.dataSource = this.localStorageService.getSale().items;
+    const dataTemp=this.localStorageService.getSale()
+    if(!dataTemp || dataTemp.items.length <= 0){ this.dataSource = []; return;}
+    this.dataSource = dataTemp.items;
     this.totalizer();
   }
   totalizer() {

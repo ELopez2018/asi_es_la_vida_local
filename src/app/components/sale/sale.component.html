@@ -1,5 +1,5 @@
 <div class="container-fluid sale">
-  <div class="sale__client"> <i class="fas fa-user"></i><span (click)="openDialogClient()">Cliente: {{ client.name +' ' + client.lastName }}</span></div>
+  <div class="sale__client"> <i class="fas fa-user"></i><span (click)="openDialogClient()">Cliente: {{ client.name +' ' + client.last_name }}</span></div>
   <div class="row sale__info">
     <div class="col-sm-2 sale__totales">
       <div>
@@ -60,7 +60,7 @@
     </div>
   </div>
   <!-- TABLA -->
-  <div class="row mt-3" *ngIf="dataSource">
+  <div class="row mt-3" *ngIf="dataSource ">
     <section class="example-container mat-elevation-z8" tabindex="0">
       <table mat-table [dataSource]="dataSource">
 

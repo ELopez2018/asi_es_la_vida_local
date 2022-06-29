@@ -25,6 +25,8 @@ export class MainComponent implements OnInit {
       this.userFacade.setUser(this.user);
     } else {
       this.userFacade.setUser(UserMock);
+      this.localStorageService.setItem('user',UserMock)
+      this.user = UserMock;
     }
     customInitFunctions();
   }
